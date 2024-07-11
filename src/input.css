@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.delete {
+    cursor: pointer;
+}
+
+.filtered {
+    display: none !important;
+}
+
+.bg-gradient-customfts {
+    background: linear-gradient(135deg, #a5bda6, #f0ca92, #a5bda6);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+.completed-task {
+    text-decoration: line-through;
+    color: #777676;
+    /* Metnin rengini açmak için */
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
