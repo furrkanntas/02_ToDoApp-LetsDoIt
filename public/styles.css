@@ -564,9 +564,22 @@ video {
   position: relative;
 }
 
+.inset-0{
+  inset: 0px;
+}
+
+.inset-32{
+  inset: 8rem;
+}
+
 .inset-y-0{
   top: 0px;
   bottom: 0px;
+}
+
+.inset-x-0{
+  left: 0px;
+  right: 0px;
 }
 
 .left-1{
@@ -577,12 +590,28 @@ video {
   top: 2.5rem;
 }
 
+.top-32{
+  top: 8rem;
+}
+
+.left-1\/2{
+  left: 50%;
+}
+
+.top-28{
+  top: 7rem;
+}
+
 .col-span-1{
   grid-column: span 1 / span 1;
 }
 
 .col-span-11{
   grid-column: span 11 / span 11;
+}
+
+.col-span-3{
+  grid-column: span 3 / span 3;
 }
 
 .mx-auto{
@@ -592,6 +621,14 @@ video {
 
 .mb-4{
   margin-bottom: 1rem;
+}
+
+.mt-auto{
+  margin-top: auto;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
 }
 
 .block{
@@ -604,6 +641,10 @@ video {
 
 .grid{
   display: grid;
+}
+
+.h-1\/2{
+  height: 50%;
 }
 
 .h-4{
@@ -626,6 +667,48 @@ video {
   height: 100vh;
 }
 
+.h-svh{
+  height: 100svh;
+}
+
+.h-fit{
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.h-64{
+  height: 16rem;
+}
+
+.h-96{
+  height: 24rem;
+}
+
+.h-\[600px\]{
+  height: 600px;
+}
+
+.h-\[400px\]{
+  height: 400px;
+}
+
+.h-\[800px\]{
+  height: 800px;
+}
+
+.max-h-fit{
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
+.min-h-screen{
+  min-height: 100vh;
+}
+
+.min-h-full{
+  min-height: 100%;
+}
+
 .w-4{
   width: 1rem;
 }
@@ -642,24 +725,80 @@ video {
   width: 100%;
 }
 
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-\[fit\]{
+  width: fit;
+}
+
+.w-\[full\]{
+  width: full;
+}
+
+.w-\[600px\]{
+  width: 600px;
+}
+
+.w-\[800px\]{
+  width: 800px;
+}
+
+.w-\[700px\]{
+  width: 700px;
+}
+
+.w-\[500px\]{
+  width: 500px;
+}
+
 .min-w-96{
   min-width: 24rem;
+}
+
+.min-w-\[300px\]{
+  min-width: 300px;
+}
+
+.min-w-\[500px\]{
+  min-width: 500px;
+}
+
+.min-w-\[400px\]{
+  min-width: 400px;
 }
 
 .max-w-\[90\%\]{
   max-width: 90%;
 }
 
+.max-w-\[600px\]{
+  max-width: 600px;
+}
+
+.max-w-\[400px\]{
+  max-width: 400px;
+}
+
+.max-w-\[500px\]{
+  max-width: 500px;
+}
+
+.max-w-\[80\%\]{
+  max-width: 80%;
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
 
-.grid-cols-12{
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-cols-12{
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -674,12 +813,20 @@ video {
   align-items: flex-start;
 }
 
+.items-end{
+  align-items: flex-end;
+}
+
 .items-center{
   align-items: center;
 }
 
 .justify-start{
   justify-content: flex-start;
+}
+
+.justify-end{
+  justify-content: flex-end;
 }
 
 .justify-center{
@@ -775,6 +922,61 @@ video {
   background-color: rgb(254 240 138 / 0.2);
 }
 
+.bg-green-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+
+.bg-purple-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
+
+.bg-blue-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.bg-purple-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(233 213 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'\/public\/img\/gorsel1\.png\'\)\]{
+  background-image: url('/public/img/gorsel1.png');
+}
+
+.bg-cover{
+  background-size: cover;
+}
+
+.bg-fixed{
+  background-attachment: fixed;
+}
+
+.bg-center{
+  background-position: center;
+}
+
+.bg-origin-content{
+  background-origin: content-box;
+}
+
+.object-top{
+  -o-object-position: top;
+     object-position: top;
+}
+
+.object-bottom{
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
 .p-2{
   padding: 0.5rem;
 }
@@ -803,8 +1005,12 @@ video {
   padding-bottom: 0.25rem;
 }
 
-.pb-2{
-  padding-bottom: 0.5rem;
+.pb-3{
+  padding-bottom: 0.75rem;
+}
+
+.pb-5{
+  padding-bottom: 1.25rem;
 }
 
 .pl-2{
@@ -831,12 +1037,8 @@ video {
   padding-top: 1rem;
 }
 
-.pb-4{
-  padding-bottom: 1rem;
-}
-
-.pb-3{
-  padding-bottom: 0.75rem;
+.pt-32{
+  padding-top: 8rem;
 }
 
 .text-center{
@@ -973,7 +1175,6 @@ video {
 .completed-task {
   text-decoration: line-through;
   color: #777676;
-  /* Metnin rengini açmak için */
 }
 
 .material-symbols-outlined {
@@ -1002,15 +1203,47 @@ video {
   .lg\:top-20{
     top: 5rem;
   }
+
+  .lg\:top-28{
+    top: 7rem;
+  }
 }
 
 @media (min-width: 1280px){
   .xl\:top-32{
     top: 8rem;
   }
+
+  .xl\:col-span-3{
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:max-w-\[90\%\]{
+    max-width: 90%;
+  }
+
+  .xl\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1536px){
+  .\32xl\:top-32{
+    top: 8rem;
+  }
+
+  .\32xl\:top-20{
+    top: 5rem;
+  }
+
+  .\32xl\:top-24{
+    top: 6rem;
+  }
+
+  .\32xl\:top-28{
+    top: 7rem;
+  }
+
   .\32xl\:w-60{
     width: 15rem;
   }

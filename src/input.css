@@ -23,7 +23,6 @@
 .completed-task {
     text-decoration: line-through;
     color: #777676;
-    /* Metnin rengini açmak için */
 }
 
 .material-symbols-outlined {

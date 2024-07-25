@@ -5,27 +5,23 @@ const completedList = document.querySelector('.completed');
 const updateTodoCount = () => {
     const todoCount = document.querySelectorAll('.todos .cardFt').length;
     const doneCount = document.querySelectorAll('.completed .cardFt').length;
-    
+
     document.querySelector('.doTaskFt').textContent = todoCount;
     document.querySelector('.doneTaskFt').textContent = doneCount;
 };
 
-// Seçilen rengi saklamak için bir değişken tanımla
 let selectedColor = 'bg-white/30';
 
-// Todo'ları local storage'a kaydet
 const saveTodos = todos => {
     localStorage.setItem('todos', JSON.stringify(todos));
 };
 
-// Local storage'dan todo'ları al ve sırala
 const getTodos = () => {
     const todos = JSON.parse(localStorage.getItem('todos')) || [];
-    // To Do listesi için Added At saatine göre en güncel olan en alta
+
     const todoList = todos.filter(todo => !todo.completedAt);
     todoList.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-    // Completed listesi için Done At saatine göre en güncel olan en alta
     const completedList = todos.filter(todo => todo.completedAt);
     completedList.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
 
@@ -76,14 +72,12 @@ const generateTemplate = (todoText, createdAt, completedAt = null, backgroundCol
         list.insertAdjacentHTML('beforeend', html);
     }
 
-    // Renk değiştirme olayları
     const lastAddedTodo = (completedAt ? completedList : list).lastElementChild;
 
     const updateColor = (colorClass) => {
         lastAddedTodo.classList.remove('bg-white/30', 'bg-red-200/30', 'bg-blue-200/30', 'bg-green-200/30');
         lastAddedTodo.classList.add(colorClass);
 
-        // Local storage güncelleme
         const todos = getTodos();
         const todo = todos.find(t => t.text === todoText);
         todo.backgroundColor = colorClass;
@@ -96,16 +90,15 @@ const generateTemplate = (todoText, createdAt, completedAt = null, backgroundCol
     lastAddedTodo.querySelector('.doGreenFt').addEventListener('click', () => updateColor('bg-green-200/30'));
 };
 
-// Todo ekleme
 addForm.addEventListener('submit', e => {
     e.preventDefault();
     const todoText = addForm.add.value.trim();
     const createdAt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
     let finalColor = selectedColor.includes('focus:bg-yellow-200/20') ? 'bg-white/30' :
-                    selectedColor.includes('bg-red-300/50') ? 'bg-red-200/30' :
-                    selectedColor.includes('bg-blue-300/50') ? 'bg-blue-200/30' :
-                    selectedColor.includes('bg-green-300/50') ? 'bg-green-200/30' : selectedColor;
+        selectedColor.includes('bg-red-300/50') ? 'bg-red-200/30' :
+            selectedColor.includes('bg-blue-300/50') ? 'bg-blue-200/30' :
+                selectedColor.includes('bg-green-300/50') ? 'bg-green-200/30' : selectedColor;
 
     if (todoText.length) {
         generateTemplate(todoText, createdAt, null, finalColor);
@@ -113,46 +106,42 @@ addForm.addEventListener('submit', e => {
         todos.push({ text: todoText, createdAt: createdAt, completedAt: null, backgroundColor: finalColor });
         saveTodos(todos);
         addForm.reset();
-        updateTodoCount(); // Görev sayısını güncelle
+        updateTodoCount();
     }
 });
 
-// Renklerin tıklama olayları // backDefault olarak güncelle
 document.querySelectorAll('.backDefFt, .backRedFt, .backBlueFt, .backGreenFt').forEach(colorButton => {
     colorButton.addEventListener('click', () => {
         const inputElement = document.querySelector('input[name="add"]');
         selectedColor = colorButton.classList.contains('backRedFt') ? 'bg-red-300/50' :
-                        colorButton.classList.contains('backBlueFt') ? 'bg-blue-300/50' :
-                        colorButton.classList.contains('backGreenFt') ? 'bg-green-300/50' : 
-                        colorButton.classList.contains('backDefFt') ? 'focus:bg-yellow-200/20' : '';
+            colorButton.classList.contains('backBlueFt') ? 'bg-blue-300/50' :
+                colorButton.classList.contains('backGreenFt') ? 'bg-green-300/50' :
+                    colorButton.classList.contains('backDefFt') ? 'focus:bg-yellow-200/20' : '';
 
-        // Eski focus:bg sınıfını temizle ve yeni sınıfı ekle
         inputElement.classList.remove('bg-red-300/50', 'bg-blue-300/50', 'bg-green-300/50', 'focus:bg-yellow-200/20');
         inputElement.classList.add(`${selectedColor}`);
     });
 });
 
-// Sayfa yüklendiğinde todo'ları yükle
 document.addEventListener('DOMContentLoaded', () => {
     const todos = getTodos();
     todos.forEach(todo => {
         generateTemplate(todo.text, todo.createdAt, todo.completedAt, todo.backgroundColor);
     });
 
-    updateTodoCount(); // Görev sayısını güncelle
+    updateTodoCount();
 });
 
-// Todo tamamlama ve geri alma
 document.addEventListener('click', e => {
     if (e.target.classList.contains('complete') || e.target.classList.contains('xMark')) {
         const todoElement = e.target.closest('.w-full');
         const todoTextElement = todoElement.querySelector('p');
         const todoText = todoTextElement.textContent.trim();
         const todos = getTodos();
-        const todo = todos.find(t => t.text === todoText); // id vereceğiz !!!!
+        const todo = todos.find(t => t.text === todoText);
 
         if (e.target.classList.contains('complete')) {
-            // Tamamlama işlemi
+
             todo.completedAt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             todoElement.querySelector('.doneAt').textContent = `Done At: ${todo.completedAt}`;
             todoElement.querySelector('.doneAt').style.display = 'block';
@@ -161,7 +150,7 @@ document.addEventListener('click', e => {
             todoElement.querySelector('.xMark').style.display = 'block';
             completedList.appendChild(todoElement);
         } else {
-            // Geri alma işlemi
+
             todo.completedAt = null;
             todo.createdAt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             todoElement.querySelector('.doneAt').textContent = '';
@@ -174,10 +163,9 @@ document.addEventListener('click', e => {
         }
 
         saveTodos(todos);
-        updateTodoCount(); // Görev sayısını güncelle
+        updateTodoCount();
     }
 
-    // Görev silme
     if (e.target.classList.contains('delete')) {
         const todoElement = e.target.closest('.w-full');
         const todoText = todoElement.querySelector('p').textContent.trim();
@@ -185,12 +173,12 @@ document.addEventListener('click', e => {
         todos = todos.filter(todo => todo.text !== todoText);
         saveTodos(todos);
         todoElement.remove();
-        updateTodoCount(); // Görev sayısını güncelle
+        updateTodoCount();
     }
 });
 
 const filterTodos = term => {
-    // To Do listesini filtrele
+
     Array.from(list.children)
         .filter(todo => !todo.textContent.toLowerCase().includes(term))
         .forEach(todo => todo.classList.add('filtered'));
@@ -199,7 +187,6 @@ const filterTodos = term => {
         .filter(todo => todo.textContent.toLowerCase().includes(term))
         .forEach(todo => todo.classList.remove('filtered'));
 
-    // Tamamlanmış görevler listesini filtrele
     Array.from(completedList.children)
         .filter(todo => !todo.textContent.toLowerCase().includes(term))
         .forEach(todo => todo.classList.add('filtered'));
@@ -209,32 +196,26 @@ const filterTodos = term => {
         .forEach(todo => todo.classList.remove('filtered'));
 };
 
-// Arama çubuğuna her yazıldığında filtre uygula
 search.addEventListener('keyup', () => {
     const term = search.value.trim().toLowerCase();
     filterTodos(term);
 });
 
-// Tarih ve Saat bilgilerini ayarlama
 function updateDateTime() {
     const now = new Date();
     const formattedDate = dateFns.format(now, 'MMMM d - EEEE');
     const formattedTime = dateFns.format(now, 'HH:mm:ss');
     const formattedYear = dateFns.format(now, 'yyyy');
 
-    // Date, Time ve Year elementlerini seç
     const dateElement = document.querySelector('.date-text');
     const timeElement = document.querySelector('.time-text');
     const yearElement = document.querySelector('.yearft');
 
-    // Güncel tarih, saat ve yılı elementlere ekle
     dateElement.textContent = formattedDate;
     timeElement.textContent = formattedTime;
     yearElement.textContent = formattedYear;
 }
 
-// Başlangıçta bir kez çalıştır
 updateDateTime();
 
-// Her saniye tarih ve saati güncelle
 setInterval(updateDateTime, 1000);
