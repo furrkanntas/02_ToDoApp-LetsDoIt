@@ -1,8 +1,8 @@
 # Let's Do It - To-Do List Application
 
-**Live Demo:** [Let's Do It - Live Link](https://furrkanntas.github.io/02_ToDoApp-LetsDoIt/)
+**Live Demo:** <a href="https://furrkanntas.github.io/02_ToDoApp-LetsDoIt/" target="_blank">Let's Do It - Live Link</a>
 
-**Other Projects:** [Explore My Projects](https://furrkanntas.github.io/01_FT-Portfolio/index.html)
+**Other Projects:** <a href="https://furrkanntas.github.io/01_FT-Portfolio/index.html" target="_blank">Explore My Projects</a>
 
 ## Overview
 
@@ -59,6 +59,6 @@ Happy organizing!
 Best regards,  
 **Furkan Taş**
 
-**Live Demo:** [Let's Do It - Live Link](https://furrkanntas.github.io/02_ToDoApp-LetsDoIt/)
+**Live Demo:** <a href="https://furrkanntas.github.io/02_ToDoApp-LetsDoIt/" target="_blank">Let's Do It - Live Link</a>
 
-**Other Projects:** [Explore My Projects](https://furrkanntas.github.io/01_FT-Portfolio/index.html)
+**Other Projects:** <a href="https://furrkanntas.github.io/01_FT-Portfolio/index.html" target="_blank">Explore My Projects</a>
