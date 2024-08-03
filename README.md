@@ -1,5 +1,9 @@
 # Let's Do It - To-Do List Application
 
+**Live Demo:** [Let's Do It - Live Link](https://furrkanntas.github.io/02_ToDoApp-LetsDoIt/)
+
+**Other Projects:** [Explore My Projects](https://furrkanntas.github.io/01_FT-Portfolio/index.html)
+
 ## Overview
 
 Let's Do It is a simple and user-friendly to-do list application developed using HTML, Tailwind CSS, and JavaScript. The application allows users to add, complete, and delete tasks, as well as search through their tasks. Each task can be customized with a color and will be saved in local storage to persist between sessions.
@@ -53,4 +57,8 @@ Thank you for checking out the Let's Do It To-Do List Application! We hope this 
 Happy organizing!
 
 Best regards,  
-Furkan Taş
+**Furkan Taş**
+
+**Live Demo:** [Let's Do It - Live Link](https://furrkanntas.github.io/02_ToDoApp-LetsDoIt/)
+
+**Other Projects:** [Explore My Projects](https://furrkanntas.github.io/01_FT-Portfolio/index.html)
